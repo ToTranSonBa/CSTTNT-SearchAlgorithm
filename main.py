@@ -12,14 +12,13 @@ def main():
     col = len(matrix[0])
     x_size = handle.x_index*col
     y_size = handle.x_index*row
-    print(x_size, y_size)
     while x_size > 1920 or y_size > 1080:
         handle.x_index -= 10
         handle.y_index -= 10
         x_size = handle.x_index*col
         y_size = handle.x_index*row
     DISPLAYSURF = pygame.display.set_mode((x_size, y_size))
-    DISPLAYSURF.fill((255, 255, 255))
+    DISPLAYSURF.fill((229, 191, 135))
     visited = [[False for i in range(col)] for j in range(row)]
     route = []
     route2 = []
