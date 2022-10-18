@@ -68,7 +68,8 @@ def test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start):
         j = 0
         for y in x:
             if y == 'x':
-                pygame.draw.rect(DISPLAYSURF, (148, 83, 5), (j*x_index, i*y_index, x_index, y_index))
+                pygame.draw.rect(DISPLAYSURF, (94, 88, 115), (j*x_index, i*y_index, x_index, y_index),0,round(x_index/5))
+                pygame.draw.rect(DISPLAYSURF, (75, 70, 92), (j*x_index, i*y_index, x_index, y_index),round(x_index/6))
                 pygame.display.update()
             if y == '+':
                 xanh = (0 , 255 , 0)
@@ -100,17 +101,16 @@ def test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start):
         DISPLAYSURF.blit(text_End, (end[1]*x_index + round(x_index/10), end[0]*y_index + round(y_index/3)))
         DISPLAYSURF.blit(text_start, (start[1]*x_index + round(x_index/4), start[0]*y_index + round(y_index/4)))
 
-        pygame.draw.rect(DISPLAYSURF, (0, 150, 255), (i[1]*x_index, i[0]*y_index, x_index, y_index))
+        pygame.draw.rect(DISPLAYSURF, (65, 171, 176), (i[1]*x_index, i[0]*y_index, x_index - round(x_index/10), y_index - round(x_index/10)),0,5)
         pygame.display.update()
         sleep(0.04)
-        pygame.draw.rect(DISPLAYSURF, (0, 255, 255), (i[1]*x_index, i[0]*y_index, x_index , y_index))
-        pygame.display.update()
+        
         
 
     for i in route:
         DISPLAYSURF.blit(text_End, (end[1]*x_index + round(x_index/10), end[0]*y_index + round(y_index/3)))
 
-        pygame.draw.rect(DISPLAYSURF, (0, 0, 255), (i[1]*x_index, i[0]*y_index, x_index , y_index))
+        pygame.draw.rect(DISPLAYSURF, (226, 85, 93), (i[1]*x_index, i[0]*y_index, x_index , y_index),0,5)
         
         DISPLAYSURF.blit(text_start, (start[1]*x_index + round(x_index/4), start[0]*y_index + round(y_index/4)))
         pygame.display.update()
