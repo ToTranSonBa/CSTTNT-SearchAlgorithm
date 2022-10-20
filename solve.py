@@ -92,7 +92,8 @@ def solve(input):
 		route = []
 		route2 = []
 		delay = 0.01
-		GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2)
+		# GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2)
+		Astar_test.Astar(l, bonus_points, start, end, visited, route, route2)
 		#dfs.dfs(l, bonus_points, start, end, visited, route, route2)
 		#bfs.bfs(l, bonus_points, start, end, visited, route, route2)
 		handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)

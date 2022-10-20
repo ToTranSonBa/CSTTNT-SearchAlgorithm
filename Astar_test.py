@@ -16,7 +16,7 @@ def Astar(matrix, bonus_points, Start, End, visited, route, route_astar):
 
         """ danh dau da qua """
 
-        open.sort(key= lambda x: x.cost)
+        open.sort(key= lambda x: x.distance, reverse= True)
         O = open.pop(-1)
         # route_astar.append(O.coordinates)
 
@@ -34,14 +34,14 @@ def Astar(matrix, bonus_points, Start, End, visited, route, route_astar):
             if i[0] == O.coordinates:
                 index = matrix.index(i)
 
-        stack = []
+        # stack = []
         for i in matrix[index]:
             distance = (i[0] - End[0]) ** 2 + (i[1] - End[1]) ** 2 + O.cost + 1
             tmp = handle.Node(i, None, O.cost + 1, distance)
             tmp.par = O
             if visited[i[0]][i[1]] == False:
-                stack.append(tmp)
+                open.append(tmp)
                 route_astar.append(tmp.coordinates)
                 visited[i[0]][i[1]] = True
-        stack.sort(key = lambda x: x.distance, reverse= True)
-        open = open + stack
+        # stack.sort(key = lambda x: x.distance, reverse= True)
+        # open = open + stack

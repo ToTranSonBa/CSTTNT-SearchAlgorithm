@@ -7,11 +7,11 @@ x           xxxxx            x
 x                x           x
 x             xxxxxx         x
 x              x   x         x
-x                   x        x
-x                            x
-x                            x
-x                            x
-x     xxxxxx                 x
+x              x    x        x
+x              x             x
+x              x             x
+x              x             x
+x     xxxxxx   x             x
 x       xxxxxxx              x
 x        x   x               x
 x        xx                  x

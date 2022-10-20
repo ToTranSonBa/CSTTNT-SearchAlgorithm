@@ -140,10 +140,12 @@ def test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, dela
 	        sys.exit() """
 
 class Node:
-	def __init__(self, coordinates, par = None, cost = 1):
+	def __init__(self, coordinates, par = None, cost = 1, distance = 0):
 		self.coordinates = coordinates
 		self.par = par
 		self.cost = 1
+		self.distance = distance
+
 
 def main_route(O, mainroute):
 	mainroute.append(O.coordinates)
