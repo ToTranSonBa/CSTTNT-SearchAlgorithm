@@ -71,7 +71,7 @@ def solve(input):
 		delay = 0.03
 		dfs.dfs(l, bonus_points, start, end, visited, route, route2)
 		handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
-	if input == "bfs":
+	if input == "test":
 		pathInput = 'Input/Level1'
 		pathfile = os.path.join(pathInput, 'Input5.txt')
 		print(pathfile)
