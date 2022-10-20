@@ -28,7 +28,6 @@ def dfs(matrix, bonus_points, Start, End, visited, route, route_dfs):
                 index = matrix.index(i)
 
         for i in matrix[index]:
-            print(i)
             tmp = handle.Node(i)
             tmp.par = O
             if visited[i[0]][i[1]] == False:
