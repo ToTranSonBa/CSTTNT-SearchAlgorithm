@@ -37,7 +37,8 @@ def gbfs(matrix, bonus_points, Start, End, visited, route, route_gbfs):
 
         # stack = []
         for i in matrix[index]:
-            cost = math.sqrt(abs(i[0] - End[0]) + abs(i[1] - End[1]))
+            # cost = math.sqrt(abs(i[0] - End[0]) + abs(i[1] - End[1]))
+            cost = math.sqrt((i[0] - End[0]) ** 2 + (i[1] - End[1]) ** 2)
             tmp = handle.Node(i, None, 0, cost)
             tmp.par = O
             if visited[i[0]][i[1]] == False:
