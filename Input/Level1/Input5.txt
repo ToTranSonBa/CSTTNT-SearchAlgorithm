@@ -1,13 +1,13 @@
 0
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xS                           x
+x                            x
 x             xxx            x
 x           xxxxx            x
 x           xxxxx            x
 x                x           x
 x             xxxxxx         x
 x              x   x         x
-x              x    x        x
+x        S     x    x        x
 x              x             x
 x              x             x
 x              x             x
