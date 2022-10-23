@@ -6,7 +6,7 @@ import glob, os
 
 def solve(input):
 	if input == "all":
-		pathInput = 'Input/Level1'
+		pathInput = 'input/level_1'
 		for pathfile in glob.glob(os.path.join(pathInput, '*.txt')):
 			filename = os.path.splitext(os.path.basename(pathfile))[0]
 			print(filename)
@@ -150,8 +150,8 @@ def solve(input):
 			f.write("\nchi phi: " + str(totalcost))
 			f.close()
 	if input == "advance":
-		pathInput = 'Input/advance'
-		pathfile = os.path.join(pathInput, 'Input1.txt')
+		pathInput = 'input/advance'
+		pathfile = os.path.join(pathInput, 'input1.txt')
 		print(pathfile)
 		bonus_points, matrix = handle.read_file(pathfile)
 		l, start, end = handle.matrix_hoa(matrix)
@@ -173,7 +173,7 @@ def solve(input):
 		dfs.dfs(l, bonus_points, start, end, visited, route, route2)
 		handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
 	if input == "test":
-		pathInput = 'Input/Level1'
+		pathInput = 'input/level_1'
 		pathfile = os.path.join(pathInput, 'Input5.txt')
 		print(pathfile)
 		bonus_points, matrix = handle.read_file(pathfile)
