@@ -48,6 +48,23 @@ def solve(input):
 			UCS_Test.ucs(l, bonus_points, start, end, visited, route, route2)
 			handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
 			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "ucs.jpg"))
+
+			# GBFS
+			visited = [[False for i in range(col)] for j in range(row)]
+			route = []
+			route2 = []
+			DISPLAYSURF.fill((255, 255, 255))
+			GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2)
+			handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
+			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "gbfs.jpg"))
+			# astar
+			visited = [[False for i in range(col)] for j in range(row)]
+			route = []
+			route2 = []
+			DISPLAYSURF.fill((255, 255, 255))
+			Astar_test.Astar(l, bonus_points, start, end, visited, route, route2)
+			handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
+			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "astar.jpg"))
 	if input == "advance":
 		pathInput = 'Input/advance'
 		pathfile = os.path.join(pathInput, 'Input1.txt')
