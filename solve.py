@@ -79,16 +79,16 @@ def solve(input):
 			f.write(string)
 			f.write("\nchi phi: " + str(totalcost))
 			f.close()
-			# GBFS
+			# GBFS - heuristic 1
 			totalcost = 0
 			visited = [[False for i in range(col)] for j in range(row)]
 			route = []
 			route2 = []
 			DISPLAYSURF.fill((255, 255, 255))
-			GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2)
+			GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2, 1)
 			handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
-			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "gbfs.jpg"))
-			f = open(pathOutput + "/gbfs.txt", "w+")
+			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "gbfs_heuristic_1.jpg"))
+			f = open(pathOutput + "/gbfs_heuristic_1.txt", "w+")
 			string = ""
 			for i in route:
 				string = string + '(' + str(i[0]) + ', ' + str(i[1]) + '), ' 
@@ -96,16 +96,52 @@ def solve(input):
 			f.write(string)
 			f.write("\nchi phi: " + str(totalcost))
 			f.close()
-			# astar
+			# GBFS - heuristic 2
 			totalcost = 0
 			visited = [[False for i in range(col)] for j in range(row)]
 			route = []
 			route2 = []
 			DISPLAYSURF.fill((255, 255, 255))
-			Astar_test.Astar(l, bonus_points, start, end, visited, route, route2)
+			GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2, 2)
 			handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
-			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "astar.jpg"))
-			f = open(pathOutput + "/astar.txt", "w+")
+			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "gbfs_heuristic_2.jpg"))
+			f = open(pathOutput + "/gbfs_heuristic_2.txt", "w+")
+			string = ""
+			for i in route:
+				string = string + '(' + str(i[0]) + ', ' + str(i[1]) + '), ' 
+				totalcost += 1
+			f.write(string)
+			f.write("\nchi phi: " + str(totalcost))
+			f.close()
+			
+			# astar - heuristic 1
+			totalcost = 0
+			visited = [[False for i in range(col)] for j in range(row)]
+			route = []
+			route2 = []
+			DISPLAYSURF.fill((255, 255, 255))
+			Astar_test.Astar(l, bonus_points, start, end, visited, route, route2, 1)
+			handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
+			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "astar_heuristic_1.jpg"))
+			f = open(pathOutput + "/astar_heuristic_1.txt", "w+")
+			string = ""
+			for i in route:
+				string = string + '(' + str(i[0]) + ', ' + str(i[1]) + '), ' 
+				totalcost += 1
+			f.write(string)
+			f.write("\nchi phi: " + str(totalcost))
+			f.close()
+
+			# astar - heuristic 2
+			totalcost = 0
+			visited = [[False for i in range(col)] for j in range(row)]
+			route = []
+			route2 = []
+			DISPLAYSURF.fill((255, 255, 255))
+			Astar_test.Astar(l, bonus_points, start, end, visited, route, route2, 2)
+			handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
+			pygame.image.save(DISPLAYSURF, os.path.join(pathOutput, "astar_heuristic_2.jpg"))
+			f = open(pathOutput + "/astar_heuristic_2.txt", "w+")
 			string = ""
 			for i in route:
 				string = string + '(' + str(i[0]) + ', ' + str(i[1]) + '), ' 
@@ -158,14 +194,9 @@ def solve(input):
 		route = []
 		route2 = []
 		delay = 0.01
-		# GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2)
-		Astar_test.Astar(l, bonus_points, start, end, visited, route, route2)
+		# GBFS_test.gbfs(l, bonus_points, start, end, visited, route, route2, 2)
+		Astar_test.Astar(l, bonus_points, start, end, visited, route, route2, 1)
 		#dfs.dfs(l, bonus_points, start, end, visited, route, route2)
-		#bfs.bfs(l, bonus_points, start, end, visited, route, route2)
+		# bfs.bfs(l, bonus_points, start, end, visited, route, route2)
+		# UCS_Test.ucs(l, bonus_points, start, end, visited, route, route2)
 		handle.test_init(matrix, bonus_points, route2, route, DISPLAYSURF, end, start, delay)
-		string = ""
-		for i in route:
-			string = string + '(' + str(i[0]) + ', ' + str(i[1]) + '), ' 
-		print(route)
-		print(string)
-		print(totalcost)

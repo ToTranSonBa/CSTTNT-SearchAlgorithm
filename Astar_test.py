@@ -1,4 +1,4 @@
-# from random import random
+from random import random
 # import handle
 # import math
 
@@ -61,7 +61,7 @@ def equal_coordinates(O, bonus_points):
         return 0
 
 
-def Astar(matrix, bonus_points, Start, End, visited, route, route_astar):
+def Astar(matrix, bonus_points, Start, End, visited, route, route_astar, heuristic = 0):
     start = handle.Node(Start)
     open = []
     open.append(start)
@@ -96,8 +96,10 @@ def Astar(matrix, bonus_points, Start, End, visited, route, route_astar):
                 index = matrix.index(i)
 
         for i in matrix[index]:
-            # distance = math.sqrt((i[0] - End[0]) ** 2 + (i[1] - End[1]) ** 2) + O.cost + 1
-            distance = math.sqrt(abs(i[0] - End[0]) + abs(i[1] - End[1])) + O.cost + 1
+            if heuristic == 1:
+                distance = math.sqrt((i[0] - End[0]) ** 2 + (i[1] - End[1]) ** 2) + O.cost + 1
+            else: 
+                distance = (abs(i[0] - End[0]) + abs(i[1] - End[1])) + O.cost + 1
             tmp = handle.Node(i, None, O.cost + 1, distance)
             tmp.par = O
             if visited[i[0]][i[1]] == False:

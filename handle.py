@@ -1,5 +1,6 @@
 import pygame
 from time import sleep
+import math
 
 x_index = 50
 y_index = 50
@@ -143,7 +144,7 @@ class Node:
 	def __init__(self, coordinates, par = None, cost = 1, distance = 0):
 		self.coordinates = coordinates
 		self.par = par
-		self.cost = 1
+		self.cost = cost
 		self.distance = distance
 
 

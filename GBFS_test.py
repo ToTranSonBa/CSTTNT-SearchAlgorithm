@@ -1,7 +1,7 @@
 import handle
 import math
    
-def gbfs(matrix, bonus_points, Start, End, visited, route, route_gbfs):
+def gbfs(matrix, bonus_points, Start, End, visited, route, route_gbfs, heuristic = 1):
     # distance_start = (Start[0] - End[0]) ** 2 + (Start[1] - End[1]) ** 2
     start = handle.Node(Start)
     open = []
@@ -35,16 +35,16 @@ def gbfs(matrix, bonus_points, Start, End, visited, route, route_gbfs):
             if i[0] == O.coordinates:
                 index = matrix.index(i)
 
-        # stack = []
         for i in matrix[index]:
-            # cost = math.sqrt(abs(i[0] - End[0]) + abs(i[1] - End[1]))
-            cost = math.sqrt((i[0] - End[0]) ** 2 + (i[1] - End[1]) ** 2)
+            if heuristic == 1:
+                cost = (abs(i[0] - End[0]) + abs(i[1] - End[1]))
+            else:
+                cost = math.sqrt((i[0] - End[0]) ** 2 + (i[1] - End[1]) ** 2)
             tmp = handle.Node(i, None, 0, cost)
             tmp.par = O
             if visited[i[0]][i[1]] == False:
                 open.append(tmp)
                 route_gbfs.append(tmp.coordinates)
                 visited[i[0]][i[1]] = True
-        # stack.sort(key = lambda x: x.cost, reverse= True)
-        # open = open + stack
+        # stack.sort(key = lambda x: x.coordinates, reverse= True)
         # print(open[0].coordinates)
